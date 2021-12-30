@@ -1,0 +1,228 @@
+
+@font-face {
+  font-family: 'Roboto';
+  src: url('../assets/fonts/roboto-regular-webfont.woff2') format('woff2');
+  font-weight: 400;
+  font-display: swap;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Roboto';
+  src: url('../assets/fonts/roboto-bold-webfont.woff2') format('woff2');
+  font-weight: 700;
+  font-display: swap;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Montserrat';
+  src: url('../assets//fonts/montserrat-regular-webfont.woff2') format('woff2');
+  font-weight: 400;
+  font-display: swap;
+  font-style: normal;
+}
+
+html {
+  box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+	box-sizing: inherit;
+}
+
+body {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-width: 320px;
+  font-size: 20px;
+  margin: 0;
+  font-family: "Roboto", sans-serif;
+  background-color: rgba(244, 249, 255, 0.7);
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover, 
+input:-webkit-autofill:focus, 
+input:-webkit-autofill:active
+{
+ -webkit-box-shadow: 0 0 0 30px rgba(55, 172, 141, 0.2) inset !important;
+}
+
+.container {
+  margin: 0 auto;
+  width: 600px;
+  box-shadow: 0px 1px 10px 0px black;
+}
+.form {
+  overflow: hidden;
+}
+.form-container {
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+.form__label {
+  position: relative;
+  width: 100%;
+}
+.card-wrapper {
+  position: relative;
+  background-color: #ffffff;
+  width: 100%;
+  min-height: 40px;
+  display: flex;
+  padding: 10px;
+  margin-bottom: 10px;
+
+}
+.title{
+  background-color: #3F2AFF;
+  color: #fff;
+  padding: 1px 0;
+  text-align: center;
+}
+h1 {
+  font-size: 1.3em;
+}
+.card-input {
+  margin: 1px 0;
+  padding-left: 3%;
+  font-size: 14px;
+  display: block;
+  height: 50px;
+  width: 100%;
+  font-family: 'Montserrat', sans-serif;
+  border: transparent;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.card-input:focus {
+  outline: none;
+}
+
+.card-type {
+  position: absolute;
+  left: 345px;
+  top: 5px;
+  width: 30px;
+  height: 30px;
+}
+
+.card-type img {
+  width: 100%;
+  height: 100%;
+}
+
+.btn{
+  display: block;
+  padding: 15px 30px;
+  width: 100%;
+  border: none;
+  background-color: #3F2AFF;
+  color: #fff;
+  margin-top: 2px;
+  cursor: pointer;
+  font-size: 0.9em;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+.btn:hover{
+  background-color: #2918c4;
+  transition: 0.3s ease;
+}
+
+.btn:disabled {
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+
+.invalid {
+  border: 1px solid red;
+}
+
+.valid {
+  background-color: rgba(55, 172, 141, 0.2);
+}
+
+.valid-span {
+  position: absolute;
+  top: 10px;
+  right: -550px;
+  width: 30px;
+  height: 30px;
+  border-radius: 100%;
+  background-color: #3F2AFF;
+  opacity: 0;
+  transform: translateX(300%);
+  transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
+}
+
+.valid-span::after {
+  content: '';
+  position: absolute;
+  top: 8px;
+  right: 9px;
+  width: 10px;
+  height: 10px;
+  border: 3px solid #fff;
+  border-top: transparent;
+  border-right: transparent;
+  transform: rotate(-45deg);
+  z-index: 10;
+}
+
+.valid-span.show {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+
+
+.jp-card.jp-card-mir.jp-card-identified .jp-card-front:before, .jp-card.jp-card-mir.jp-card-identified .jp-card-back:before {
+  background: linear-gradient(to right, transparent, rgba(43, 170, 136, 0.9)),
+  url('../assets/img/mir_logo_small_en.png');
+}
+
+.js-validate-error-label {
+  position: absolute;
+  left: 20px;
+  top: 3px;
+  width: 200px;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 400;
+  font-size: 10px;
+  line-height: 11px;
+  color: #f06666 ;
+}
+
+.js-validate-error-label.hide {
+  display: none;
+}
+
+
+
+@media (max-width: 480px){
+  .container {
+    width: 100%;
+    margin: 0 auto;
+  }
+  .form-container {
+    margin: 0 2%;
+  }
+  .card-input {
+    font-size: 1em;
+    margin: 2px 0;
+  }
+
+  h1 {
+    font-size: 1.2em;
+  }
+}
