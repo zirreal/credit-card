@@ -25,7 +25,6 @@ const validateName = (type) => {
 
     type.addEventListener('keypress', (e) => {
         let value = type.value + e.key;
-        console.log(value);
         if(!value.match(regWords)) {
             e.preventDefault();
         } else {
@@ -59,7 +58,7 @@ const checkAllFields = () => {
                 document.querySelector('.btn').disabled = true;
             }
 
-        
+
         });
     });
 
@@ -75,7 +74,7 @@ const removeAllErrors = () => {
             }
         });
     });
-    
+
 };
 
 const createCardTypeElement = (item, src) => {
@@ -107,27 +106,27 @@ const isValid = (element) => {
     element.nextElementSibling.classList.add('show');
     element.classList.remove('invalid');
     if(element.parentElement.querySelector('.js-validate-error-label')) {
-        element.parentElement.querySelector('.js-validate-error-label').classList.add('hide') 
+        element.parentElement.querySelector('.js-validate-error-label').classList.add('hide')
     }
 }
 
 const showCardType = (type) => {
     switch(type) {
-        case 'mir': 
+        case 'mir':
             createCardTypeElement(cardNumber.parentElement, mir);
             break;
         case 'visa':
             createCardTypeElement(cardNumber.parentElement, visa);
-            break; 
+            break;
         case 'maestro':
             createCardTypeElement(cardNumber.parentElement, maestro);
-            break; 
+            break;
         case 'mastercard':
             createCardTypeElement(cardNumber.parentElement, mastercard);
-            break; 
+            break;
         case 'american-express':
             createCardTypeElement(cardNumber.parentElement, amex);
-            break; 
+            break;
     };
 }
 
@@ -141,7 +140,7 @@ let card = new Card({
 
     messages: {
         validDate: 'valid\ndate',
-        monthYear: 'мм/гггг', 
+        monthYear: 'мм/гггг',
     },
 
     placeholders: {
@@ -160,7 +159,7 @@ cardNumber.addEventListener('change', () => {
 
     if(cardNumber.parentElement.querySelector('.card-type')) {
         cardNumber.parentElement.querySelector('.card-type').remove();
-    } 
+    }
 
     if(numberValidation.card && numberValidation.card.type !== 'mir' && document.querySelector('.jp-card').classList.contains('jp-card-mir')) {
         document.querySelector('.jp-card').classList.remove('jp-card-mir')
@@ -173,9 +172,8 @@ cardNumber.addEventListener('blur', () => {
     if (!numberValidation.isPotentiallyValid) {
         isInvalid(cardNumber, 'Неверно введен номер!');
     }
-      
+
     if (numberValidation.card && cardNumber.value.length === 19 || numberValidation.card && cardNumber.value.length === 17) {
-        console.log(numberValidation.card.type);
         showCardType(numberValidation.card.type);
         isValid(cardNumber);
     } else {
@@ -189,7 +187,7 @@ expirationDate.addEventListener('blur', () => {
     if (!expirationDateValidation.isPotentiallyValid || expirationDate.value.length !== 7) {
         isInvalid(expirationDate, 'Неправильно введена дата!');
     }
-      
+
     if (expirationDateValidation.isValid) {
         isValid(expirationDate);
     }
@@ -203,7 +201,7 @@ cvv.addEventListener('blur', () => {
         // renderInvalidCardNumber();
         isInvalid(cvv, 'Неправильно введен cvc/cvv код!');
       }
-      
+
     if (cvvValidation.isValid) {
         isValid(cvv);
       }
